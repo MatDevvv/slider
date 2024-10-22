@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slider matttdev</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="image-container">
+            <img src="portifolio.jpg" />
+            <div class="image-overlay">
+              <a
+                href="https://portifoliomatdev.netlify.app"
+                target="_blank"
+                class="overlay-link"
+              >
+                <img src="link.png" alt="Link" class="link-icon" />
+                Visite meu portifolio
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="image-container">
+            <img src="github.jpg" />
+            <div class="image-overlay">
+              <a
+                href="https://github.com/MatDevvv"
+                target="_blank"
+                class="overlay-link"
+              >
+                <img src="link.png" alt="Link" class="link-icon" />
+                Visite meu GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide floating-slide">
+          <div class="floating-container">
+            <img
+              class="tech-icon"
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+              alt="JavaScript"
+            />
+            <img
+              class="tech-icon"
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+              alt="TypeScript"
+            />
+            <img
+              class="tech-icon"
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+              alt="Node.js"
+            />
+            <img
+              class="tech-icon"
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+              alt="React"
+            />
+            <img
+              class="tech-icon"
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/adonisjs/adonisjs-original.svg"
+              alt="AdonisJS"
+            />
+            <img
+              class="tech-icon"
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+              alt="Git"
+            />
+            <img
+              class="tech-icon"
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+              alt="CSS"
+            />
+            <img
+              class="tech-icon"
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+              alt="HTML"
+            />
+            <img
+              class="tech-icon"
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
+              alt="Figma"
+            />
+            <img
+              class="tech-icon"
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+              alt="Python"
+            />
+            <img class="tech-icon" src="django.svg" alt="Django" />
+            <img
+              class="tech-icon"
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+              alt="MySQL"
+            />
+            <img
+              class="tech-icon"
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+              alt="MongoDB"
+            />
+            <img
+              class="tech-icon"
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"
+              alt="Bootstrap"
+            />
+            <img
+              class="tech-icon"
+              src="tailwind-css-2 (1).svg"
+              alt="Tailwind"
+            />
+            <img
+              class="tech-icon"
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg"
+              alt="Sass"
+            />
+            <img class="tech-icon" src="api.png" alt="API" />
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper(".mySwiper", {
+        effect: "cube",
+        grabCursor: true,
+        cubeEffect: {
+          shadow: true,
+          slideShadows: true,
+          shadowOffset: 20,
+          shadowScale: 0.94,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+
+      const techIcons = document.querySelectorAll(
+        ".floating-container .tech-icon"
+      );
+
+      const updateIconPositions = () => {
+        techIcons.forEach((icon) => {
+          icon.style.left = `${Math.random() * (window.innerWidth - 100)}px`;
+          icon.style.top = `${Math.random() * (window.innerHeight - 100)}px`;
+        });
+      };
+
+      const floatIcons = () => {
+        techIcons.forEach((icon) => {
+          const floatAmount = 5 + Math.random() * 5;
+          const animate = () => {
+            icon.style.transform = `translateY(${
+              Math.sin(Date.now() / 500) * floatAmount
+            }px)`;
+            requestAnimationFrame(animate);
+          };
+          animate();
+        });
+      };
+
+      document.addEventListener("DOMContentLoaded", () => {
+        updateIconPositions();
+        floatIcons();
+      });
+
+      window.addEventListener("resize", updateIconPositions);
+    </script>
+  </body>
+</html>
